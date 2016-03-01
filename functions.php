@@ -6,9 +6,10 @@ URL: htp://glocal.coop
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-if ( !is_admin() ) add_action( 'wp_enqueue_scripts', 'glocal_child_scripts_and_styles' );
 
-function glocal_child_scripts_and_styles() {
+function anp_child_scripts_and_styles() {
+
+    $parent_style = 'anp-stylesheet';
 
 	// Responsive Script
 	//wp_register_script( 'MYSCRIPTNAME', get_template_directory_uri() . '/path/to/script', array(), '', true );
@@ -20,10 +21,13 @@ function glocal_child_scripts_and_styles() {
     //wp_enqueue_script( 'MYSCRIPTNAME' );
     //wp_enqueue_style( 'MYSTYLENAME' );
     
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array('glocal-stylesheet') );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array($parent_style) );
    
 }
 
+if ( !is_admin() ) {
+    add_action( 'wp_enqueue_scripts', 'anp_child_scripts_and_styles' );
+}
 
 
 
