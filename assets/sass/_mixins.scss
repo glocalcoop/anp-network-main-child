@@ -1,0 +1,46 @@
+// FONT SIZING
+@mixin font-size($font-size: 16) {
+  $rem-font-value: ($font-size / 16);
+  // font-size: ($font-size * 1px);
+  font-size: $rem-font-value + rem;
+}
+
+
+// RWD BREAKPOINTS 
+// mobile first! so you only have to use floats etc in larger sizes
+// set breakpoints where your content breaks, not particular devices
+
+@mixin breakpoint($point) {
+  @if $point == xs {
+    @media screen and (min-width: $xs-screen)  { @content; } 
+  }
+  @if $point == sm {
+    @media screen and (min-width: $sm-screen) { @content; }
+  }
+  @if $point == md {
+    @media screen and (min-width: $md-screen) { @content; }
+  }
+  @if $point == lg {
+    @media screen and (min-width: $lg-screen) { @content; }
+  }
+  @else if $point == xl {
+    @media screen and (min-width: $xl-screen) { @content; }
+  }
+}
+
+
+/**
+ * Lists
+ */
+@mixin no-bullets() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin inline-list() {
+  @include no-bullets();
+  li {
+   display: inline-block; 
+ }
+}

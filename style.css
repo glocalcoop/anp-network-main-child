@@ -7,7 +7,13 @@
  Template:     anp-network-main
  Version:      1.1.1
  Tags:         two-columns, right-sidebar, responsive-layout
- Text Domain:  anp-network-main-child
+ Text Domain:  network-main-child
 */
+/**
+ * Lists
+ */
 .highlights .module-heading {
   background: #d1cfcb url("../images/home-highlight.png") no-repeat center center; }
+
+.footer ul {
+  width: 100%; }
